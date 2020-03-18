@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Professional Beer Development in 2020",
+    date: "Feb 29th, 2020",
+    firstParagraph: `A beer eats the Budweiser behind some Guiness. Another blood clot negotiates a prenuptial agreement with the financial Busch. Some customer inside a Heineken steals women from a Hazed and Infused for a girl scout, or the most difficult Fraoch Heather Ale pees on the customer. Now and then, the sake bomb inside the burglar ale makes a pact with a pin ball machine. When you see a Pilsner, it means that a corona light over a Mango Beer trembles.`,
+
+    secondParagraph: `When the Octoberfest inside a Pilsner goes to sleep, the mysterious Mango Beer earns enough for a beer. Now and then, a razor blade beer reaches an understanding with a Labatts near some hops. A Rolling Rock for a Sierra Nevada eats a Keystone, and a slow Guiness seldom teaches the tornado brew. When you see an intoxicatedly nearest burglar ale, it means that a keg ruminates. Most people believe that the ice house is a big fan of the slow pool table, but they need to remember how thoroughly a completely crispy Harpoon hibernates.`,
+
+    thirdParagraph: `When you see a Pilsner Urquell behind the Miller, it means that a Jamaica Red Ale laughs out loud. If another Dixie Beer dances with a chain saw, then a Miller living with a hops sweeps the floor. A monkey bite living with a Mango Beer secretly admires a Corona behind a Budweiser Select. If the hammered bull ice tries to seduce a green Mango Beer, then a bar tab beyond a Yuengling takes a coffee break.`
   }
 ];
 
@@ -135,6 +144,7 @@ const articleComp = (
   article.append(p3);
   article.append(button);
 
+  article.classList.add("article");
   artDate.classList.add("date");
   button.classList.add("expandButton");
 
@@ -144,15 +154,24 @@ const articleComp = (
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
 
+  button.textContent = "Button";
+
   button.addEventListener("click", () => {
-    button.classList.toggle("article-open");
+    article.classList.toggle("article-open");
   });
 
   return article;
 };
 
 const articleDiv = document.querySelector(".articles");
-console.log(data)
 data.forEach(el => {
-  articleDiv.appendChild(articleComp(el.title, el.date, el.firstParagraph, el.secondParagraph, el.thirdParagraph));
-})
+  articleDiv.appendChild(
+    articleComp(
+      el.title,
+      el.date,
+      el.firstParagraph,
+      el.secondParagraph,
+      el.thirdParagraph
+    )
+  );
+});
