@@ -154,9 +154,10 @@ const articleComp = (
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
 
-  button.textContent = "Button";
+  button.textContent = "Open";
 
   button.addEventListener("click", () => {
+    button.textContent = "Close";
     article.classList.toggle("article-open");
   });
 
